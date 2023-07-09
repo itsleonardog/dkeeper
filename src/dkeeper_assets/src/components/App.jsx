@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
@@ -14,6 +14,10 @@ function App() {
       return [...prevNotes, newNote];
     });
   }
+
+  useEffect(() => {
+    console.log('useEffect is triggered')
+  })
 
   function deleteNote(id) {
     setNotes(prevNotes => {
