@@ -17,7 +17,13 @@ function App() {
 
   useEffect(() => {
     console.log('useEffect is triggered')
-  })
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    const notesArray = await dkeeper.readNotes();
+    setNotes(notesArray);
+  }
 
   function deleteNote(id) {
     setNotes(prevNotes => {
